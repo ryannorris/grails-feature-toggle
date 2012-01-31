@@ -1,6 +1,6 @@
 package grails.feature.toggle.filters
 import grails.plugin.featuretoggle.FeatureToggleService;
-import grails.plugin.featuretoggle.annotations.FeatureToggle;
+import grails.plugin.featuretoggle.annotations.Feature;
 
 class FeatureToggleFilters {
 
@@ -8,16 +8,17 @@ class FeatureToggleFilters {
 
 	def filters = {
 		allControllers(controller:'*', action:'*') {
-			before = {
-				def artefact = grailsApplication.getArtefactByLogicalPropertyName("Controller", controllerName)
-
-				def curController = applicationContext.getBean(artefact.clazz.name)
-
-				def annotation = curController.class.getAnnotation(FeatureToggle)
-
-				if(annotation != null && !featureToggleService.isFeatureEnabled(annotation.feature())) {
-					render(status: annotation.responseStatus())
-					return
+			before = { 
+				def controllers = request.servletContext['controlledActions']
+				
+				def action = controllers[controllerName.toLowerCase() + '.' + actionName.toLowerCase()] 
+				
+				if(action != null && !featureToggleService.isFeatureEnabled(action.name)) {
+					if(action.resultRedirect.size() > 0) {
+						redirect(uri: action.resultRedirect)
+					} else {
+						render(status: action.resultStatus )
+					}
 				}
 			}
 		}
