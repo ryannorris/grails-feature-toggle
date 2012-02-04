@@ -1,12 +1,12 @@
 package grails.plugin.featuretoggle
 
-import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
+//import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
 
 class ToggleTagLib {
 	def featureToggleService
 
 	/**
-	 * Toggles whether a feature is enabled in the user interface, as configured in Config.groovy 
+	 * Toggles whether a feature is enabled in the user interface, as configured in Config.groovy
 	 * under swapfish.features[:]
 	 *
 	 * @attr feature REQUIRED the name of the feature
@@ -19,7 +19,7 @@ class ToggleTagLib {
 			out << body()
 		}
 	}
-	
+
 	def featureEnabled = { attrs ->
 		out << featureToggleService.isFeatureEnabled(attrs.feature)
 	}
