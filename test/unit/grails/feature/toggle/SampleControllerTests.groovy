@@ -2,8 +2,7 @@ package grails.feature.toggle
 
 import grails.feature.toggle.filters.FeatureToggleFilters
 import grails.plugin.featuretoggle.FeatureToggleService
-import grails.test.mixin.Mock
-import grails.test.mixin.TestFor
+import grails.test.mixin.*
 
 
 /**

@@ -1,5 +1,5 @@
-import org.codehaus.groovy.grails.commons.ApplicationAttributes
-import grails.plugin.featuretoggle.annotations.Feature
+
+import grails.feature.toggle.annotations.Feature;
 
 import java.lang.reflect.Field
 

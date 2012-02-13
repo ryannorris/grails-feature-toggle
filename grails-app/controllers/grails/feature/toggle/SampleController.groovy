@@ -1,6 +1,6 @@
 package grails.feature.toggle
 
-import grails.plugin.featuretoggle.annotations.Feature;
+import grails.feature.toggle.annotations.Feature;
 
 @Feature(name='sample')
 class SampleController {
