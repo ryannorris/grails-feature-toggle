@@ -24,7 +24,6 @@ class FeatureToggleUrlMappings {
 
 		name sampleList: "/sample" {
 			controller = "sample"
-			action = "index"
 		}
 	}
 }
