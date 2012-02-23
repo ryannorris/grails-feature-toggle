@@ -1,6 +1,7 @@
 package grails.feature.toggle.filters
-import grails.plugin.featuretoggle.FeatureToggleService;
-import grails.plugin.featuretoggle.annotations.Feature;
+
+import grails.plugin.featuretoggle.FeatureToggleService
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
